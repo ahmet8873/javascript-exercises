@@ -12,4 +12,25 @@ function longestWord(text) {
   return longestWord;
 }
 
-console.log(longestWord("The quick brown fox jumped over the lazy dog"));
+// console.log(longestWord("The quick brown fox jumped over the lazy dog"));
+
+// we return the first longest word, not all of them, in order to return all the longest words
+
+function longestWords(text) {
+  let words = text.split(" ");
+
+  let size = 0;
+  let maxWords = [""];
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length >= size) {
+      size = words[i].length;
+      if (maxWords[maxWords.length - 1].length < size) {
+        maxWords = [];
+        maxWords.push(words[i]);
+      } else {
+        maxWords = [...maxWords, words[i]];
+      }
+    }
+  }
+  return maxWords;
+}
