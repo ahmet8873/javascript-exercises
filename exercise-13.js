@@ -11,5 +11,19 @@ function unique(arr) {
   return true;
 }
 
-console.log(unique([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
-console.log(unique([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10]));
+// console.log(unique([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+// console.log(unique([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10]));
+
+// use Set
+function unique2(str) {
+  let tempStr = new Set();
+  for (let letter of str) {
+    if (tempStr.has(letter)) {
+      return false;
+    }
+    tempStr.add(letter);
+  }
+  return true;
+}
+console.log(unique2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+console.log(unique2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10]));
