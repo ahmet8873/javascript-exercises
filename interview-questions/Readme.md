@@ -439,3 +439,473 @@ const arr = "some string";
 console.log(arr.split("").reverse().join(""));
 // Output: gnirts esom
 ```
+
+### array destructuring
+
+array destructring us to extract elements from an array and assign them to variables
+
+```js
+let [a, b, c] = [1, 2, 3];
+console.log(a, b, c); // Output: 1 2 3
+```
+
+### array-like objects
+
+array-like objects are objects that have indexed elements and a length property , similar to arrays but they may not have all the methods like push, pop, shift, and unshift
+
+```js
+const str = "hello";
+console.log(str.length); // Output: 5
+console.log(str[0]); // Output: "h"
+```
+
+In JavaScript, the "argument object" refers to a special object that is automatically available inside all functions. This object contains an array-like structure that holds all the arguments passed to the function when it is invoked.
+
+```js
+function myFunction() {
+  console.log(arguments);
+}
+myFunction(1, 2, 3);
+// Output: [1, 2, 3]
+```
+
+```js
+function sum() {
+  let total = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    total += arguments[i];
+  }
+  return total;
+}
+
+console.log(sum(1, 2, 3)); // Output: 6
+```
+
+### how to convert an array-like object to an array
+
+```js
+const obj = { 0: "a", 1: "b", 2: "c", length: 3 };
+const arr = Array.from(obj);
+console.log(arr); // Output: ["a", "b", "c"]
+```
+
+```js
+const obj = { 0: "a", 1: "b", 2: "c", length: 3 };
+const arr = Object.keys(obj);
+console.log(arr); // Output: ["0", "1", "2", "length"]
+```
+
+```js
+const obj = { 0: "a", 1: "b", 2: "c", length: 3 };
+const arr = Object.values(obj);
+console.log(arr); // Output: ["a", "b", "c", 3]
+```
+
+```js
+const obj = { 0: "a", 1: "b", 2: "c", length: 3 };
+const arr = Object.entries(obj);
+console.log(arr); // Output: [["0", "a"], ["1", "b"], ["2", "c"], ["length", 3]]
+```
+
+### what is a loop in js and what are the types of loops?
+
+a loop is a programming way to run a piece of code repeatedly until a certain condition is met.
+
+```js
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+```
+
+```js
+while (condition) {
+  // code
+}
+```
+
+```js
+do {
+  // code
+} while (condition);
+```
+
+```js
+for (let item of arr) {
+  console.log(item);
+}
+```
+
+```js
+for (let item in arr) {
+  console.log(item);
+}
+
+const obj = { a: 1, b: 2, c: 3 };
+for (const key in obj) {
+  console.log(key + ": " + obj[key]);
+} // Output: a: 1, b: 2, c: 3
+```
+
+for objects you can use for in loop to iterate through the object keys
+
+### what is the difference between break and continue in javascript?
+
+break and continue statements can be used to exit or skip the current iteration of a loop.
+
+```js
+for (let i = 0; i < 10; i++) {
+  if (i === 5) {
+    break;
+  }
+  console.log(i); // Output: 0, 1, 2, 3, 4
+}
+```
+
+you cannot use break in forEach loop
+
+```js
+for (let i = 0; i < 10; i++) {
+  if (i === 5) {
+    continue;
+  }
+  console.log(i); // Output: 0, 1, 2, 3, 4, 6, 7, 8, 9
+}
+```
+
+### what are the functions in javascript? what are the types of functions in javascript?
+
+a function is reusable block of code that performs a specific task.
+named function, anonymous function, arrow function..
+
+### function expression
+
+a function expression is a function that is assigned to a variable or passed as an argument to another function.
+
+```js
+const add = function (a, b) {
+  return a + b;
+};
+```
+
+### arrow function
+
+```js
+const add = (a, b) => a + b;
+```
+
+### callback function - higher order function
+
+a callback function is a function that is passed as an argument to another function.
+
+a higher order function is a function that takes another function as an argument or returns a function.
+
+```js
+function display(a, b, operation) {
+  return operation(a, b);
+}
+//display is a higher order function and operation is a callback function
+```
+
+```js
+function createAdder(num) {
+  return function (x) {
+    return x + num;
+  };
+}
+//createAdder is a higher order function , Returns a function as a result
+```
+
+### what is parameters and arguments in javascript?
+
+Parameters are placeholders that are defined inside a function.
+Arguments are values that are passed to a function when it is called.
+
+### how do you use default parameters in javascript?
+
+default parameters allows you to provide a default value for a parameter if no value is provided.
+
+```js
+function add(a, b = 0) {
+  return a + b;
+}
+```
+
+### event handling in javascript
+
+event handling is the process of listening to an event and executing a function when the event occurs.
+
+```js
+const button = document.querySelector("button");
+button.addEventListener("click", function () {
+  console.log("Button clicked");
+});
+```
+
+### template literals in javascript
+
+template literals allow you to write strings that contain expressions.
+
+```js
+const name = "John";
+const age = 30;
+const message = `Hello, my name is ${name} and I am ${age} years old.`;
+console.log(message); // Output: "Hello, my name is John and I am 30 years old."
+```
+
+```js
+let multilineString = `This is
+a multiline
+string`;
+console.log(multilineString); // Output: "This is\na multiline\nstring"
+```
+
+### DOM methods in javascript - selectors
+
+DOM stands for Document Object Model. It is a representation of an HTML document that can be manipulated using JavaScript.
+
+selecting dom elements
+selectors in JS help to get specific elements from the DOM based on IDs, classes, and other attributes.
+
+```js
+const element = document.getElementById("myElement");
+const elements = document.getElementsByClassName("myClass");
+const elements = document.getElementsByTagName("div");
+const element = document.querySelector("#myElement");
+const elements = document.querySelectorAll(".myClass");
+const elements = document.querySelectorAll('[data-role="button"]');
+
+const elementWithinContext = contextElement.querySelector(".myClass");
+const elementsWithinContext = contextElement.querySelectorAll("div");
+```
+
+### what are the methods to modify elements in javascript?
+
+```js
+element.innerHTML = "<p>New content</p>";
+element.innerHTML = "<p>New content</p>";
+element.setAttribute("class", "newClass");
+const className = element.getAttribute("class");
+element.classList.add("newClass");
+element.classList.remove("oldClass");
+element.classList.toggle("active");
+const hasClass = element.classList.contains("someClass");
+element.style.color = "red";
+parentElement.appendChild(newChild);
+parentElement.removeChild(childElement);
+const newElement = document.createElement("div");
+```
+
+### what is the difference between innerHtml and textContent in javascript?
+
+The innerHTML and textContent properties are both used to manipulate the content of HTML elements, but they have different behaviors:
+
+```js
+<div id="example"></div>;
+
+const element = document.getElementById("example");
+
+// Using innerHTML
+element.innerHTML = "<strong>Hello</strong> <em>world</em>";
+
+// Using textContent
+element.textContent = "Hello world";
+```
+
+In summary, use innerHTML when you need to manipulate HTML content, including tags, and use textContent when you only need to deal with plain text content without any HTML interpretation.
+
+### what is the difference between createElement and createTextNode in javascript?
+
+createTextNode method is used to create text node for existing elements
+
+```js
+const textNode = document.createTextNode("Hello, World!");
+parentElement.appendChild(textNode);
+
+const element = document.createElement("div");
+```
+
+### what is error handling in javascript?
+
+Error handling is the process of catching and handling exceptions that may occur during the execution of a program.
+
+```js
+try {
+  // Code that may throw an exception
+} catch (error) {
+  // Code to handle the exception
+} finally {
+  // Code that will always be executed regardless of whether an exception is thrown or not
+}
+```
+
+Throw new Error() statement is used to throw an error.Stops the execution of current function and passes the error to catch block of calling function
+
+Error propagation is the process of propagating an error from one part of the code to another by using the Throw statement.
+
+### error types in js
+
+```js
+// The generic error type. It serves as the base type for all other error types. You can create instances of this type to throw generic errors.
+throw new Error("Something went wrong");
+```
+
+```js
+// SyntaxError: Indicates a syntax error in the code. This typically occurs when the JavaScript engine encounters code that violates the language syntax rules.
+throw new SyntaxError("Invalid syntax");
+```
+
+```js
+// ReferenceError: Indicates that an invalid reference was made, typically when trying to access a variable that has not been declared or is not in scope.
+throw new ReferenceError("Variable is not defined");
+```
+
+```js
+//TypeError: Indicates that an operation was performed on a value of the wrong type. This often occurs when trying to access properties or call methods on undefined or null values.
+throw new TypeError('Cannot read property "x" of undefined');
+console.log(number.upperCase()); // TypeError: Cannot read property 'upperCase' of undefined
+```
+
+```js
+// RangeError: Indicates that a value is out of the expected range. This typically occurs when trying to access an array or string index that is out of bounds.
+const array = [1, 2, 3];
+array[3] = 4; // RangeError: Index out of range
+```
+
+### what is object in javascript?
+
+In JavaScript, an object is a complex data type that allows you to store collections of data and functionality in key-value pairs. Objects are one of the most fundamental concepts in JavaScript and are used extensively in the language.
+
+Dot Notation and Bracket Notation: You can access and manipulate properties of an object using dot notation (object.property) or bracket notation (object['property']).
+
+### in how many ways can we create object in javascript?
+
+```js
+// 1. Object literal
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York",
+};
+
+// 2. Object constructor
+const person = new Object();
+person.name = "John";
+person.age = 30;
+person.city = "New York";
+
+//3. constructor function
+function Person(name, age, city) {
+  this.name = name;
+  this.age = age;
+  this.city = city;
+}
+let person = new Person("John", 30, "New York");
+
+// 4. Object.create
+const person = Object.create({
+  name: "John",
+  age: 30,
+  city: "New York",
+});
+```
+
+### differences between arrays and objects in javascript
+
+arrays are collection of values
+
+objects are collection of key value pairs
+
+arrays are denoted by []
+
+objects are denoted by {}
+
+elements in arrays are ordered by index
+
+elements in objects are unordered
+
+### add , modify and delete properties in object
+
+```js
+const person = {
+  name: "John",
+  age: 30,
+};
+person.name = "Jane";
+person.city = " New York";
+person["new property"] = "new value";
+delete person.city;
+
+console.log(person["new property"]);
+console.log(person["age"]);
+```
+
+### how to check if a property exist in an object
+
+```js
+const person = {
+  name: "John",
+  age: 30,
+};
+console.log("name" in person); // Output: true
+console.log("address" in person); // Output: false
+
+console.log(person.hasOwnProperty("name")); // Output: true
+
+console.log(person.name !== undefined); // Output: true
+```
+
+### what are events in javascript? how an event can be triggered in javascript?
+
+user intearcts with the web page (click)
+an event occurs
+a piece of js code is executed in response
+the page is updated or modified
+
+### what is event object in javascript?
+
+```js
+const button = document.querySelector("button");
+button.addEventListener("click", function (event) {
+  console.log(event);
+  console.log(event.target);
+  console.log(event.type);
+});
+```
+
+### event delegation in javascript
+
+event delegation is a technique that allows you to listen to events on parent elements and then trigger the same event on child elements.So we dont have to add event listener to all the child elements
+
+```js
+const parent = document.querySelector(".parent");
+parent.addEventListener("click", handleClick);
+function handleClick(event) {
+  let target = event.target;
+  console.log(target.textContent);
+}
+```
+
+### event bubbling
+
+bubbling is when an event is triggered on an element and then on its parent element until it reaches the top level of the DOM tree. It propagates up the DOM tree until it reaches the top level.
+
+```js
+<div class="parent">
+  <div class="child">
+    <button class="grandchild"></button>
+  </div>
+</div>
+```
+
+### how to stop event propagation or bubbling in javascript
+
+```js
+const grandchild = document.querySelector(".grandchild");
+grandchild.addEventListener("click", function (event) {
+  event.stopPropagation();
+});
+```
+
+### EVENT LOOP
+
+It manages the execution of code by prioritizing tasks and ensuring that asynchronous operations, such as fetching data from a server or handling user interactions, are handled efficiently without blocking the main thread. It continuously monitors the call stack for tasks to execute, and when it's empty, it checks the callback queue for pending tasks and moves them to the call stack for execution. This cycle repeats indefinitely, allowing JavaScript to handle multiple tasks concurrently while remaining responsive.
