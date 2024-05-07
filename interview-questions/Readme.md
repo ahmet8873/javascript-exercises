@@ -909,3 +909,54 @@ grandchild.addEventListener("click", function (event) {
 ### EVENT LOOP
 
 It manages the execution of code by prioritizing tasks and ensuring that asynchronous operations, such as fetching data from a server or handling user interactions, are handled efficiently without blocking the main thread. It continuously monitors the call stack for tasks to execute, and when it's empty, it checks the callback queue for pending tasks and moves them to the call stack for execution. This cycle repeats indefinitely, allowing JavaScript to handle multiple tasks concurrently while remaining responsive.
+
+### http response status codes
+
+- 1xx Informational
+- 2xx Success
+- 3xx Redirection
+- 4xx Client Error
+- 5xx Server Error
+
+### get dimensions of an element in javascript
+
+getBoundingClientRect() returns the size of an element and its position relative to the viewport.
+
+```js
+const rect = element.getBoundingClientRect();
+```
+
+### how to delete a value in an array
+
+```js
+const arr = [1, 2, 3, 4, 5];
+arr.splice(2, 1);
+```
+
+```js
+delete arr[2];
+```
+
+```js
+arr = arr.filter((item) => item !== 3);
+```
+
+### how to reverse a string in javascript
+
+```js
+let str = "hello";
+let reversedStr = str.split("").reverse().join("");
+console.log(reversedStr); // Output: "olleh"
+```
+
+### new Set() delete(value) , add(value), clear() , has(value)
+
+```js
+let arr = [1, 2, 3, 4, 5, 5, 5, 3, 2];
+let uniqueArr = [...new Set(arr)];
+console.log(uniqueArr); // Output: [1, 2, 3, 4, 5]
+uniqueArr.add(6);
+uniqueArr.delete(5);
+uniqueArr.clear(); //removes all items
+uniqueArr.has(2); //returns true or false
+```
