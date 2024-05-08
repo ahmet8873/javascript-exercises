@@ -396,6 +396,7 @@ console.log(indexNum); // Output: 4
 
 ```js
 // slice() method extracts a section of an array and returns a new array from start index to end index ( end index is not included )
+// doesnt change the original array
 const arr = [1, 2, 3, 4, 5];
 let newArr = arr.slice(0, 3);
 console.log(newArr); // Output: [1, 2, 3]
@@ -403,6 +404,7 @@ console.log(newArr); // Output: [1, 2, 3]
 
 ```js
 //splice() method changes the contents of an array by removing existing elements and/or adding new elements
+// changes the original array
 array.splice(startIndex, howmany, ...itemsToAdd);
 const arr = [1, 2, 3, 4, 5];
 arr.splice(2, 1, "a", "b", "c");
@@ -481,6 +483,19 @@ function sum() {
 console.log(sum(1, 2, 3)); // Output: 6
 ```
 
+arrow functions in JavaScript do not have their own arguments object. The arguments object is only available inside regular functions, not arrow functions!!!
+
+```js
+const sum = (...args) => {
+  let total = 0;
+  for (let i = 0; i < args.length; i++) {
+    total += args[i];
+  }
+  return total;
+};
+console.log(sum(1, 2, 3)); // Output: 6
+```
+
 ### how to convert an array-like object to an array
 
 ```js
@@ -547,6 +562,39 @@ for (const key in obj) {
 ```
 
 for objects you can use for in loop to iterate through the object keys
+
+### Arrays ->for in loop and for of loop
+
+if you use for in loop to iterate through the array, you will get the index of the array element
+if you use for of loop to iterate through the array, you will get the value of the array element
+
+```js
+const arr = [1, 3, 5, 6, 7, 7, 8, 9, 3];
+
+for (let i in arr) {
+  console.log(i); // Output: 0, 1, 2, 3, 4, 5, 6, 7, 8
+}
+
+for (let i of arr) {
+  console.log(i); // Output: 1, 3, 5, 6, 7, 7, 8, 9, 3
+}
+```
+
+### objects ->for in loop and for of loop
+
+if you use for in loop to iterate through the object, you will get the key of the object element
+
+you cannot use for of loop directly to iterate through the object. you have to use Object.keys() or Object.values() or Object.entries()
+
+```js
+const obj = { a: 1, b: 3, c: 5, d: 6, e: 7, f: 7, g: 8, h: 9, i: 3 };
+for (let i in obj) {
+  console.log(i); // Output: a, b, c, d, e, f, g, h, i
+}
+for (let i of Object.keys(obj)) {
+  console.log(i); // Output: a, b, c, d, e, f, g, h, i
+}
+```
 
 ### what is the difference between break and continue in javascript?
 
@@ -658,6 +706,14 @@ a multiline
 string`;
 console.log(multilineString); // Output: "This is\na multiline\nstring"
 ```
+
+### difference between expression and statement in javascript
+
+expressions produce values and can be part of statements
+example: 1 + 2
+
+A statement is a complete unit of code that performs a specific action.
+example: console.log("Hello, World!");
 
 ### DOM methods in javascript - selectors
 
@@ -959,4 +1015,15 @@ uniqueArr.add(6);
 uniqueArr.delete(5);
 uniqueArr.clear(); //removes all items
 uniqueArr.has(2); //returns true or false
+```
+
+### how to find a value exist in an array
+
+```js
+const arr = [1, 2, 3, 4, 5];
+console.log(arr.includes(3)); // Output: true
+```
+
+```js
+console.log(arr.indexOf(3) !== -1); // Output: true
 ```
