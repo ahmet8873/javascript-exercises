@@ -16,4 +16,4 @@ const countLetters = (text) => {
   return letters.join("");
 };
 
-console.log(countLetters("aabbccddffff")); // 2a2b2c2d4f
+console.log(countLetters("aabbccdffff")); // 2a2b2c2d4f
