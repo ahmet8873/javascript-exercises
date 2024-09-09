@@ -14,3 +14,5 @@ Implement Your Solution: Once you've understood the problem, start working on yo
 Test Your Solution: After implementing your solution, test it thoroughly. Try different input scenarios and edge cases to ensure your solution works correctly.
 Compare with Solutions: If you're stuck or want to compare your solution with others, check the solution files provided. Compare different approaches and learn from them.
 Iterate and Improve: Don't stop with just one solution. Experiment with different approaches, optimize your code, and strive for better solutions. Learning is a continuous process.
+
+ps. new comp.
