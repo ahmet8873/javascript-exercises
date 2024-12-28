@@ -56,6 +56,8 @@ h1 {
   margin-bottom: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 0;
+  padding-left: 15px;
 }
 
 .todo-item input[type="text"] {
@@ -93,4 +95,75 @@ h1 {
 
 .todo-item button.delete:hover {
   background-color: #c82333;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+#task-count {
+  margin-top: 20px;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.task-check {
+  margin-right: 10px;
+}
+
+.todo-item button.editing {
+  background-color: #28a745;
+}
+
+.todo-item button.editing:hover {
+  background-color: #218838;
+}
+
+/* Add these new styles */
+.task-content {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.task-meta {
+    display: block;
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 4px;
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Priority colors */
+.todo-item.high {
+    border-left: 4px solid #dc3545;
+}
+
+.todo-item.medium {
+    border-left: 4px solid #ffc107;
+}
+
+.todo-item.low {
+    border-left: 4px solid #28a745;
+}
+
+#task-importance {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.task-actions select.task-importance {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 5px;
 }
